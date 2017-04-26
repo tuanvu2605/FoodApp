@@ -24,11 +24,17 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.22.0):
     - FBSDKCoreKit
+  - FontAwesomeKit/Core (2.2.1)
+  - FontAwesomeKit/FontAwesome (2.2.1):
+    - FontAwesomeKit/Core
+  - HexColors (5.0.1)
 
 DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - FontAwesomeKit/FontAwesome
+  - HexColors
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -38,7 +44,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
   FBSDKLoginKit: 1fa529fc622d7b32ebeaffbecd377180833c6d30
   FBSDKShareKit: 21ab3c8d173f4fa20c47c1061f3a9fac5950b5fa
+  FontAwesomeKit: 3614979b3dbb0ec3f7fac1bd760b91f66c31db67
+  HexColors: d642e696de77aa919584012e80bf62a4b099cee1
 
-PODFILE CHECKSUM: 4b20d7fd500bf04788718ee4df44a3983eb2b10f
+PODFILE CHECKSUM: e119b734d7031ec0831f898ed40ccc80f86e7f52
 
 COCOAPODS: 1.2.0

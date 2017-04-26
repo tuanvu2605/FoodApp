@@ -7,6 +7,10 @@ use_frameworks!
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
+pod 'HexColors'
+pod 'FontAwesomeKit/FontAwesome'
+pod 'Alamofire', '~> 4.4'
+pod 'SwiftyJSON'
 
 
 
