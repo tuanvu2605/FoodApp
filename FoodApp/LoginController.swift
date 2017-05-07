@@ -10,46 +10,59 @@ import UIKit
 
 class LoginController: UIViewController {
     
+    @IBOutlet weak var loginView: UIView!
     var scrollBanner = UIScrollView()
+    var bgImageView : UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var btnLoginFb: UIButton!
+    @IBOutlet weak var btnLogin: UIButton!
+    let listImgName : [String] = ["introductionBackground1.png","introductionBackground2.png","introductionBackground3.png","introductionBackground4.png","introductionBackground5.png"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         HiFb.configLoginButton(btnLoginFb)
+        
+    
+        bgImageView = UIImageView(frame: view.bounds)
+        view.addSubview(bgImageView)
+        view.sendSubview(toBack: bgImageView)
+        bgImageView.image = UIImage(named: "introductionBackground")
         self.scrollBanner.frame = view.bounds
         self.scrollBanner.delegate = self
-        self.scrollBanner.backgroundColor = .red
+        self.scrollBanner.backgroundColor = .clear
         self.view.addSubview(scrollBanner)
-        view.sendSubview(toBack: scrollBanner)
+        
      
-        let scrollBannerSubview : CGFloat = 2
-        self.pageControl.numberOfPages = 2
+        let scrollBannerSubview : CGFloat = CGFloat(listImgName.count)
+        self.pageControl.numberOfPages = listImgName.count
         scrollBanner.addSubview(dataForScrollBanner())
         scrollBanner.isPagingEnabled = true
         scrollBanner.showsHorizontalScrollIndicator = false
         scrollBanner.showsVerticalScrollIndicator = false
         scrollBanner.contentSize = CGSize(width: scrollBannerSubview*view.frame.size.width, height: view.frame.height)
+        
+        btnLogin.layer.cornerRadius = 10.0
+        btnLogin.clipsToBounds = true
+        
+        view.bringSubview(toFront: loginView)
+        
+
 
     }
     
-    override func viewWillLayoutSubviews() {
-       
-        
-        
-    }
+
     
     
     
     func dataForScrollBanner()->UIView
     {
 
-         let contentView = UIView(frame:CGRect(x: 0, y: 0, width: self.view.frame.width*2, height: view.frame.height))
-        let listImgName : [String] = ["1.jpg","2.jpg"]
-        for i in 0...1 {
+         let contentView = UIView(frame:CGRect(x: 0, y: 0, width: self.view.frame.width * CGFloat(listImgName.count), height: view.frame.height))
+        
+        for i in 0...(listImgName.count - 1) {
             let index : CGFloat = CGFloat(i)
-            let imageView = UIImageView(frame: CGRect(x: index * self.view.frame.width, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+            let imageView = UIImageView(frame: CGRect(x: index * self.view.frame.width + 80, y: 110, width: self.view.frame.width - 160, height: self.view.frame.height - 220))
             contentView.addSubview(imageView)
             imageView.image = UIImage(named: listImgName[i])
 
@@ -64,6 +77,18 @@ class LoginController: UIViewController {
         HiFb.sharedInstance.loginFacebook(self)
     }
     
+    
+    
+    @IBAction func btnLoginDidTap(_ sender: Any) {
+        
+        let loginAccount = LoginAccountController()
+        loginAccount.modalTransitionStyle = .coverVertical
+        self.present(loginAccount, animated: true, completion: nil)
+        
+
+        
+        
+    }
     
     
 

@@ -11,6 +11,10 @@ pod 'HexColors'
 pod 'FontAwesomeKit/FontAwesome'
 pod 'Alamofire', '~> 4.4'
 pod 'SwiftyJSON'
+pod 'SDWebImage', '~>3.8'
+pod 'CarbonKit'
+pod 'DZNEmptyDataSet'
+pod 'GMStepper'
 
 
 

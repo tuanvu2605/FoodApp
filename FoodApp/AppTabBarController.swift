@@ -18,63 +18,41 @@ class AppTabBarController: UITabBarController {
         let home = HomeController(nibName: "HomeController", bundle: nil)
         let navHome = UINavigationController(rootViewController: home)
         navHome.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "home"), selectedImage: #imageLiteral(resourceName: "home_selected"))
-        self.viewControllers = [navHome]
+        
         self.tabBar.backgroundColor = .white
         self.tabBar.itemPositioning = .centered
-        var tabbarFrame = tabBar.frame
-        tabbarFrame.size.height = 40
-        tabbarFrame.origin.y = self.tabBar.frame.origin.y + (tabBar.frame.size.height - 40)
-        tabBar.frame = tabbarFrame
-        tabBar.backgroundColor = .white
+        centerIcon(tabBarItem: navHome.tabBarItem)
+        
+        let cart = CartController.shared
+        let navCart = UINavigationController(rootViewController: cart)
+        navCart.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "profile"), selectedImage:#imageLiteral(resourceName: "profile_selected"))
+        navCart.setNavigationBarHidden(true, animated: false)
+        centerIcon(tabBarItem: navCart.tabBarItem)
+        
+        self.viewControllers = [navHome,navCart]
+        
+//        var tabbarFrame = tabBar.frame
+//        tabbarFrame.size.height = 40
+//        tabbarFrame.origin.y = self.tabBar.frame.origin.y + (tabBar.frame.size.height - 40)
+//        tabBar.frame = tabbarFrame
+//        tabBar.backgroundColor = .white
+        
+        
         
         
   
     }
+    
+    func centerIcon(tabBarItem : UITabBarItem)
+    {
+        var navHomeImageInsets = tabBarItem.imageInsets
+        navHomeImageInsets.bottom = -6.0
+        navHomeImageInsets.top = 6.0
+        tabBarItem.imageInsets = navHomeImageInsets
+    }
 
 
 }
 
-extension BaseController : UIScrollViewDelegate
-{
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if scrollView.panGestureRecognizer.translation(in: scrollView.superview).y > 0 {
-            
-            setTabBarVisible(visible: true, animated: true)
-        }else
-        {
 
-            if initScrollCount > 0 {
-                initScrollCount -= 1
-                return
-            }
-            setTabBarVisible(visible: false, animated: true)
-        }
-    }
-    
-    func setTabBarVisible(visible : Bool , animated : Bool)
-    {
-        if visible == tabBarIsVisible() { return }
-        let frame = self.tabBarController?.tabBar.frame
-        let height = frame?.size.height
-        let offsetY = (visible ? -height! : height)
-        
-        let time : TimeInterval = animated ? 0.3 : 0.0
-        
-        UIView.animate(withDuration: time) {
-            
-            self.tabBarController?.tabBar.frame = (frame?.offsetBy(dx: 0, dy: offsetY!))!
-        }
-        
-        
-        
-    }
-    
-    func tabBarIsVisible() -> Bool
-    {
-        return (self.tabBarController?.tabBar.frame.origin.y)! < self.view.frame.maxY
-    }
-    
-
-}
 

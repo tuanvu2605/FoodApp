@@ -10,6 +10,8 @@ import UIKit
 import FacebookCore
 import FBSDKCoreKit
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -19,12 +21,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-        self.window?.rootViewController = AppTabBarController()
+        setRootViewControllerForWindow(animated: false)
+        UITabBar.appearance().shadowImage = #imageLiteral(resourceName: "TransparentPixel")
+        UITabBar.appearance().layer.borderWidth = 0.0
+        UITabBar.appearance().clipsToBounds = true
         self.window?.makeKeyAndVisible()
         
-        
         return true
+    }
+    /**
+     - paramter animated : true or false animted transition
+     # func do:
+     1. check whether user is logged
+     2. consider which is root controller
+     
+     */
+    
+    func setRootViewControllerForWindow(animated : Bool)
+    {
+        let timeInterval : TimeInterval  = animated ? 0.2 : 0
+        
+        if API.shared.isHasloginToken()
+        {
+            let token : String = API.shared.userDefaults.value(forKey: AppKey.udToken) as! String
+            API.shared.headerAuth = ["Authorization" : AppString.accessTokenPrefix + token]
+            if animated {
+                let transition = CATransition()
+                transition.duration = timeInterval
+                transition.type = kCATransitionPush
+                transition.subtype = kCATransitionFromRight
+                window?.backgroundColor = .white
+                window?.layer.add(transition, forKey: kCATransition)
+                self.window?.rootViewController = AppTabBarController()
+                return
+            }
+            self.window?.rootViewController = AppTabBarController()
+            return
+            
+        }
+        self.window?.rootViewController = LoginController(nibName: "LoginController", bundle: nil)
+        
+        
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartController" customModule="FoodApp" customModuleProvider="target">
+            <connections>
+                <outlet property="moneyToPay" destination="5jW-Ok-NUm" id="iqy-5f-fmw"/>
+                <outlet property="tableView" destination="pwx-gt-Q96" id="tnf-zO-wVR"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pwx-gt-Q96">
+                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Drz-za-o2a"/>
+                        <outlet property="delegate" destination="-1" id="RUq-w0-y5P"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uxh-Qa-Vxo">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dik-cr-NGL">
+                            <rect key="frame" x="10" y="20" width="65" height="30"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <state key="normal" title="Đặt hàng">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnOrderDidTap:" destination="-1" eventType="touchUpInside" id="7yc-U2-TMq"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.000.000 VNĐ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jW-Ok-NUm">
+                            <rect key="frame" x="256" y="26.5" width="109" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.54823535680770874" green="0.75788098573684692" blue="0.2297477126121521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Dik-cr-NGL" firstAttribute="leading" secondItem="Uxh-Qa-Vxo" secondAttribute="leading" constant="10" id="1Du-QS-HhA"/>
+                        <constraint firstAttribute="trailing" secondItem="5jW-Ok-NUm" secondAttribute="trailing" constant="10" id="GEo-Vt-Zzp"/>
+                        <constraint firstAttribute="bottom" secondItem="Dik-cr-NGL" secondAttribute="bottom" constant="10" id="QxZ-LS-iwz"/>
+                        <constraint firstAttribute="height" constant="60" id="XRE-mV-Ycz"/>
+                        <constraint firstItem="5jW-Ok-NUm" firstAttribute="centerY" secondItem="Dik-cr-NGL" secondAttribute="centerY" id="ziv-6Q-qtl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="pwx-gt-Q96" secondAttribute="trailing" id="4r8-ea-mzp"/>
+                <constraint firstItem="pwx-gt-Q96" firstAttribute="top" secondItem="Uxh-Qa-Vxo" secondAttribute="bottom" id="7yu-cd-2v3"/>
+                <constraint firstItem="pwx-gt-Q96" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TTC-xP-jv7"/>
+                <constraint firstAttribute="bottom" secondItem="pwx-gt-Q96" secondAttribute="bottom" id="gNN-lX-ZKD"/>
+                <constraint firstItem="Uxh-Qa-Vxo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pN7-mB-j5D"/>
+                <constraint firstAttribute="trailing" secondItem="Uxh-Qa-Vxo" secondAttribute="trailing" id="pnc-sD-XSD"/>
+                <constraint firstItem="Uxh-Qa-Vxo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uyU-lE-Epr"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="83.5"/>
+        </view>
+    </objects>
+</document>

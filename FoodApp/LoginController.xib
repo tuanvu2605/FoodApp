@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginController" customModule="FoodApp" customModuleProvider="target">
             <connections>
+                <outlet property="btnLogin" destination="wpb-On-4Ab" id="vQV-rP-u9k"/>
                 <outlet property="btnLoginFb" destination="9Ih-9E-uxT" id="Ef4-Ol-7mH"/>
+                <outlet property="loginView" destination="H5a-Su-iBE" id="k3f-XA-bIe"/>
                 <outlet property="pageControl" destination="gcz-1K-cCe" id="dYV-Zr-XQd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,21 +24,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H5a-Su-iBE">
-                    <rect key="frame" x="0.0" y="487" width="375" height="180"/>
+                    <rect key="frame" x="0.0" y="517" width="375" height="150"/>
                     <subviews>
                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="gcz-1K-cCe">
                             <rect key="frame" x="168" y="0.0" width="39" height="37"/>
                         </pageControl>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ih-9E-uxT">
-                            <rect key="frame" x="62" y="37" width="250" height="50"/>
+                            <rect key="frame" x="62" y="37" width="250" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Y1A-Ec-iTW"/>
+                                <constraint firstAttribute="height" constant="40" id="Y1A-Ec-iTW"/>
                                 <constraint firstAttribute="width" constant="250" id="qdh-Fq-Iq9"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Button">
+                            <state key="normal">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -44,15 +46,21 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpb-On-4Ab">
-                            <rect key="frame" x="62" y="97" width="250" height="50"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Button"/>
+                            <rect key="frame" x="62" y="87" width="250" height="40"/>
+                            <color key="backgroundColor" red="0.11357970739598644" green="0.30775945999279153" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <state key="normal" title="Đăng nhập với tài khoản">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnLoginDidTap:" destination="-1" eventType="touchUpInside" id="w0s-Kc-AYI"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="9Ih-9E-uxT" firstAttribute="top" secondItem="gcz-1K-cCe" secondAttribute="bottom" id="4Rr-sI-EBt"/>
-                        <constraint firstAttribute="height" constant="180" id="7Wj-m5-exe"/>
+                        <constraint firstAttribute="height" constant="150" id="7Wj-m5-exe"/>
                         <constraint firstItem="wpb-On-4Ab" firstAttribute="width" secondItem="9Ih-9E-uxT" secondAttribute="width" id="O4B-ZL-unr"/>
                         <constraint firstItem="wpb-On-4Ab" firstAttribute="height" secondItem="9Ih-9E-uxT" secondAttribute="height" id="ThH-7s-838"/>
                         <constraint firstItem="9Ih-9E-uxT" firstAttribute="centerX" secondItem="H5a-Su-iBE" secondAttribute="centerX" id="WC0-UF-zgT"/>
@@ -69,7 +77,7 @@
                 <constraint firstAttribute="trailing" secondItem="H5a-Su-iBE" secondAttribute="trailing" id="FiQ-kY-aBf"/>
                 <constraint firstAttribute="bottom" secondItem="H5a-Su-iBE" secondAttribute="bottom" id="lWU-qK-KNG"/>
             </constraints>
-            <point key="canvasLocation" x="-364" y="30"/>
+            <point key="canvasLocation" x="-279" y="-160"/>
         </view>
     </objects>
 </document>

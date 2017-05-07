@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderController" customModule="FoodApp" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="OcD-WW-eJi" id="SWI-gH-SjZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="OcD-WW-eJi">
+                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Ojq-LK-heO"/>
+                        <outlet property="delegate" destination="-1" id="Np0-Md-Evn"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0P-hB-ySh">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVU-og-a70">
+                            <rect key="frame" x="10" y="30" width="10" height="22"/>
+                            <state key="normal" image="leftArrowGrey">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnBackDidTap:" destination="-1" eventType="touchUpInside" id="bOI-Mc-lIq"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbf-Us-QNN">
+                            <rect key="frame" x="298" y="22" width="67" height="30"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <state key="normal" title="Xác nhận">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnDoneDidTap:" destination="-1" eventType="touchUpInside" id="b5f-7c-q9a"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.55315804481506348" green="0.7648969292640686" blue="0.23063930869102478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="bbf-Us-QNN" secondAttribute="bottom" constant="8" id="B4p-Xg-zll"/>
+                        <constraint firstItem="rVU-og-a70" firstAttribute="leading" secondItem="Q0P-hB-ySh" secondAttribute="leading" constant="10" id="Ttg-tA-1Nd"/>
+                        <constraint firstAttribute="height" constant="60" id="ljy-Xk-yQi"/>
+                        <constraint firstAttribute="bottom" secondItem="rVU-og-a70" secondAttribute="bottom" constant="8" id="oaJ-WX-Zax"/>
+                        <constraint firstAttribute="trailing" secondItem="bbf-Us-QNN" secondAttribute="trailing" constant="10" id="xSZ-Mj-DUe"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="OcD-WW-eJi" firstAttribute="top" secondItem="Q0P-hB-ySh" secondAttribute="bottom" id="7Kr-dY-3Ll"/>
+                <constraint firstItem="Q0P-hB-ySh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="V0j-I4-K5Y"/>
+                <constraint firstAttribute="bottom" secondItem="OcD-WW-eJi" secondAttribute="bottom" id="a98-jZ-5FT"/>
+                <constraint firstItem="Q0P-hB-ySh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bgw-ug-gge"/>
+                <constraint firstAttribute="trailing" secondItem="OcD-WW-eJi" secondAttribute="trailing" id="c94-Zm-4dk"/>
+                <constraint firstAttribute="trailing" secondItem="Q0P-hB-ySh" secondAttribute="trailing" id="egP-W8-3l5"/>
+                <constraint firstItem="OcD-WW-eJi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h2z-Ub-lm9"/>
+            </constraints>
+            <point key="canvasLocation" x="38" y="115"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="leftArrowGrey" width="10" height="17"/>
+    </resources>
+</document>

@@ -37,7 +37,7 @@ class HiFb: NSObject {
        
         button.setTitle(AppTitle.loginFacebook, for: .normal)
         button.titleLabel?.textColor = .white
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 10
         button.clipsToBounds = true
         button.backgroundColor = UIColor("3b5998")
         button.titleLabel?.textColor = .white
@@ -69,7 +69,15 @@ class HiFb: NSObject {
                 
             case .success(_, _, let accessToken):
                 
-                print("Logged in! \(accessToken.userId!)")
+
+                API.loginSocial(accessToken.userId!, accessToken.authenticationToken, { (isSuccess) in
+                    
+                    if isSuccess
+                    {
+                        appDelegate.setRootViewControllerForWindow(animated: true)
+                    }
+                    
+                })
                 
             }
             
