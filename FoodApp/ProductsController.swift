@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AMScrollingNavbar
 
 class ProductsController: BaseCollectionController {
 
@@ -18,9 +19,19 @@ class ProductsController: BaseCollectionController {
         }
 
     }
+    
+    
+    var didSetCollection = ({()->Void in
+    })
     var category : Category!
     let cellId = "ProductCellID"
     @IBOutlet weak var collection: UICollectionView!
+    {
+        didSet
+        {
+            didSetCollection()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +63,8 @@ class ProductsController: BaseCollectionController {
         
         
     }
+    
+ 
     
 
 

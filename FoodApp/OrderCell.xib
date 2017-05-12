@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="553" height="91"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="553" height="91"/>
+                <rect key="frame" x="0.0" y="0.0" width="553" height="90.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMf-kq-Q7N">
@@ -58,7 +57,7 @@
                 <outlet property="title" destination="2Bx-XF-Heg" id="aGX-v8-0Hr"/>
                 <outlet property="txtField" destination="UdS-aT-6hx" id="0e2-zD-4mP"/>
             </connections>
-            <point key="canvasLocation" x="-254.5" y="123.5"/>
+            <point key="canvasLocation" x="121" y="98"/>
         </tableViewCell>
     </objects>
 </document>

@@ -8,8 +8,9 @@
 
 import UIKit
 import CarbonKit
+import AMScrollingNavbar
 
-class StoreHouseController: BaseController {
+class StoreHouseController: UIViewController {
     
     
     var categories : [Category]!
@@ -25,9 +26,24 @@ class StoreHouseController: BaseController {
     }
     var  carbonSwipeNavigation : CarbonTabSwipeNavigation!
     static let  shared = StoreHouseController()
-
-    override func viewDidLoad() {
+    var refCollection : UICollectionView?
+    {
+        didSet
+        {
+            registerFollowCollection()
+        }
+        
+    }
+     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let cartView = CartBarItem.shared
+        let cartItem = UIBarButtonItem(customView:cartView)
+        cartItem.tintColor = .black
+        navigationItem.rightBarButtonItem = cartItem
+//        let ges = UITapGestureRecognizer(target: self, action: #selector(btnCartDidTap))
+//        cartView.addGestureRecognizer(ges)
         
         view.backgroundColor = UIColor.groupTableViewBackground
         
@@ -37,7 +53,6 @@ class StoreHouseController: BaseController {
                 return result
         })
         
-//        self.automaticallyAdjustsScrollViewInsets = false
         self.edgesForExtendedLayout = UIRectEdge.bottom
         carbonSwipeNavigation = CarbonTabSwipeNavigation(items : items , delegate : self)
         carbonSwipeNavigation.setTabExtraWidth(5.0)
@@ -48,8 +63,6 @@ class StoreHouseController: BaseController {
         carbonSwipeNavigation.toolbar.setShadowImage(#imageLiteral(resourceName: "TransparentPixel"), forToolbarPosition: .any)
         carbonSwipeNavigation.toolbar.setBackgroundImage(#imageLiteral(resourceName: "Pixel"), forToolbarPosition: .any, barMetrics: .default)
    
-        
-        
         let segmentCount : Int = (carbonSwipeNavigation.carbonSegmentedControl?.segments?.count)!
         for i in 0..<segmentCount {
             carbonSwipeNavigation.carbonSegmentedControl?.getWidthForSegment(at: UInt(i))
@@ -67,18 +80,29 @@ class StoreHouseController: BaseController {
         
     }
     
+    
+    
+//    func btnCartDidTap() {
+//        
+//        let cart = CartController.shared
+//        let navCart = NavController(rootViewController: cart)
+//        present(navCart, animated: false, completion: nil)
+//    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.extendedLayoutIncludesOpaqueBars = true
-        self.automaticallyAdjustsScrollViewInsets = false
-        
-        
-        
-       
+        if let navigationController = navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+        }
+
     }
-
-
-
+    
+    func registerFollowCollection()
+    {
+        if let navigationController = super.navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(refCollection!, delay: 50.0)
+        }
+    }
 }
 
 extension StoreHouseController : CarbonTabSwipeNavigationDelegate
@@ -86,8 +110,19 @@ extension StoreHouseController : CarbonTabSwipeNavigationDelegate
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
         let controller = ProductsController(nibName: "ProductsController", bundle: nil)
         controller.category = categories[Int(index)]
+        controller.didSetCollection = {() in
+            
+            
+            
+        }
         return controller
     }
+    
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, didMoveAt index: UInt) {
+        
+        let controller = carbonTabSwipeNavigation.pageViewController.viewControllers?[0] as! ProductsController
+        self.refCollection = controller.collection
+     }
     
     func backButtonDidTap(_ sender : UIBarButtonItem)
     {

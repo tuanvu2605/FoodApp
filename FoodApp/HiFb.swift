@@ -11,6 +11,8 @@ import FacebookLogin
 import FacebookCore
 import HexColors
 import FontAwesomeKit
+import MBProgressHUD
+
 
 
 class HiFb: NSObject {
@@ -53,6 +55,9 @@ class HiFb: NSObject {
     
      func loginFacebook(_ controller : UIViewController)
     {
+        
+        let hud = MBProgressHUD.showAdded(to: controller.view, animated: true)
+        hud.mode = .indeterminate
         let loginManager = LoginManager()
         
         loginManager.logIn([ .publicProfile , .email], viewController: controller) { loginResult in
@@ -74,6 +79,7 @@ class HiFb: NSObject {
                     
                     if isSuccess
                     {
+                        hud.hide(animated: true)
                         appDelegate.setRootViewControllerForWindow(animated: true)
                     }
                     

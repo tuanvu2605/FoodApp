@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +33,7 @@
             <connections>
                 <outlet property="shimmeringView" destination="fL8-Kh-qFc" id="gAi-ZX-We1"/>
             </connections>
-            <point key="canvasLocation" x="-289" y="79"/>
+            <point key="canvasLocation" x="24" y="141"/>
         </collectionViewCell>
     </objects>
 </document>

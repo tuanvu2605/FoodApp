@@ -8,7 +8,7 @@
 
 import UIKit
 import SDWebImage
-
+import AMScrollingNavbar
 protocol ControllerWithNavigationSearchBar
 {
     func implimentSearchbar()
@@ -33,6 +33,14 @@ class HomeController: BaseCollectionController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let cartView = CartBarItem.shared
+        let cartItem = UIBarButtonItem(customView:cartView)
+        cartItem.tintColor = .black
+        navigationItem.rightBarButtonItem = cartItem
+        let ges = UITapGestureRecognizer(target: self, action: #selector(btnCartDidTap))
+        cartView.addGestureRecognizer(ges)
+        
+        
         implimentSearchbar()
         navigationController?.navigationBar.backgroundColor = .white
         categories = [Category]()
@@ -51,9 +59,24 @@ class HomeController: BaseCollectionController {
                 self.collection.reloadData()
             }
         }
-       
-        
+     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
+    
+
+    
+    func btnCartDidTap() {
+      
+        let cart = CartController.shared
+        let navCart = NavController(rootViewController: cart)
+        present(navCart, animated: false, completion: nil)
+    }
+    
+
 
     func layoutCollectionView()
     {
@@ -65,16 +88,27 @@ class HomeController: BaseCollectionController {
         collection.collectionViewLayout = collectionLayout
         collection.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: cellId)
         collection.register(UINib(nibName: "PlaceholderCell", bundle: nil), forCellWithReuseIdentifier: placeholerCellId)
-        
-
         collection.backgroundColor = UIColor.groupTableViewBackground
         
     }
     
 }
 
-extension HomeController : ControllerWithNavigationSearchBar
+extension HomeController : ControllerWithNavigationSearchBar , ScrollingNavigationControllerDelegate
 {
+    
+    func scrollingNavigationController(_ controller: ScrollingNavigationController, didChangeState state: NavigationBarState) {
+        switch state {
+        case .collapsed:
+            print("navbar collapsed")
+        case .expanded:
+            print("navbar expanded")
+        case .scrolling:
+            print("navbar is moving")
+        }
+    }
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -91,29 +125,23 @@ extension HomeController : ControllerWithNavigationSearchBar
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if (categories.count > 0){
+        func pushStoreHouse()
+        {
             StoreHouseController.shared.tabIndex = indexPath.item
-            print("\(StoreHouseController.shared.tabIndex)")
             StoreHouseController.shared.categories = categories
             navigationController?.pushViewController(StoreHouseController.shared, animated: true)
+        
         }
-        
-        
+        if(categories.count > 0) { pushStoreHouse() }
 
     }
     
     func implimentSearchbar() {
-        
-//        searchBar = UISearchBar(frame: CGRect(x: 40, y: (self.navigationController?.navigationBar.frame.size.height)! - 35, width: AppSize.screenWidth - 80, height: 20))
-//        searchBar.returnKeyType = .search
-//        searchBar.tintColor = UIColor.groupTableViewBackground
-//        searchBar.backgroundColor = UIColor.groupTableViewBackground
-//        searchBar.barTintColor = UIColor.groupTableViewBackground
-//        searchBar.barStyle = .default
-//        
-//        searchBar.delegate = self
-//        self.navigationController?.navigationBar.addSubview(searchBar)
+
     }
+    
+
+    
 }
 
 extension HomeController : UISearchBarDelegate

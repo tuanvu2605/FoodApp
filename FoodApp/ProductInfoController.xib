@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -182,7 +181,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrowDownBlue" width="12" height="7"/>
+        <image name="arrowDownBlue" width="17" height="10"/>
         <image name="chatGray" width="28" height="28"/>
         <image name="likeRed" width="13" height="11"/>
     </resources>

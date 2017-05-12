@@ -16,20 +16,20 @@ class AppTabBarController: UITabBarController {
         super.viewDidLoad()
         
         let home = HomeController(nibName: "HomeController", bundle: nil)
-        let navHome = UINavigationController(rootViewController: home)
+        let navHome = NavController(rootViewController: home)
         navHome.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "home"), selectedImage: #imageLiteral(resourceName: "home_selected"))
         
         self.tabBar.backgroundColor = .white
         self.tabBar.itemPositioning = .centered
         centerIcon(tabBarItem: navHome.tabBarItem)
         
-        let cart = CartController.shared
-        let navCart = UINavigationController(rootViewController: cart)
-        navCart.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "profile"), selectedImage:#imageLiteral(resourceName: "profile_selected"))
-        navCart.setNavigationBarHidden(true, animated: false)
-        centerIcon(tabBarItem: navCart.tabBarItem)
-        
-        self.viewControllers = [navHome,navCart]
+        let history = StoreOrderController.shared
+        let navHistory = NavController(rootViewController: history)
+        navHistory.tabBarItem = UITabBarItem(title: nil, image:#imageLiteral(resourceName: "clock"), selectedImage: nil)
+        navHistory.setNavigationBarHidden(true, animated: false)
+        centerIcon(tabBarItem: navHistory.tabBarItem)
+    
+        self.viewControllers = [navHome ,navHistory]
         
 //        var tabbarFrame = tabBar.frame
 //        tabbarFrame.size.height = 40

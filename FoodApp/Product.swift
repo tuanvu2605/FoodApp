@@ -8,11 +8,49 @@
 
 import UIKit
 
+class Order
+{
+    var deliveryAddress : String!
+    var paymentStatus : Int!
+    var deliveryDate : Double!
+    var orderId : Int!
+    var des : String!
+    var listProduct : [CartProduct]!
+    var orderPrice : Int!
+    
+    init(_ dict : [String : Any] ) {
+        
+        deliveryAddress = dict["deliveryAddress"] as! String
+        paymentStatus = dict["paymentStatus"] as! Int
+        deliveryDate = dict["deliveryDate"] as! Double
+        orderId = dict["orderId"] as! Int
+        des = dict["description"] as! String
+        orderPrice = dict["orderPrice"] as! Int
+        listProduct = [CartProduct]()
+        for dict : [String : Any] in dict["listProduct"] as! [[String : Any]]
+        {
+            let cartProduct = CartProduct(dict)
+            listProduct.append(cartProduct)
+        }
+        
+    }
+}
+
 
 class CartProduct {
     
     var product : Product!
     var count = Int()
+    
+    
+    init() {
+        
+    }
+    init(_ dict : [String : Any]) {
+        
+        count = dict["orderQuantity"] as! Int
+        product = Product(dict: dict)
+    }
 }
 
 class Product: NSObject {

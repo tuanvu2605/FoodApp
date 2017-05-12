@@ -12,14 +12,11 @@ import DZNEmptyDataSet
 class BaseController: UIViewController {
     var initScrollCount : Int = 3
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.shadowImage = #imageLiteral(resourceName: "TransparentPixel")
-        navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "Pixel"), for: .default)
-        
-        
+         
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +24,10 @@ class BaseController: UIViewController {
         initScrollCount = 3
         
     }
+    
+
+    
+   
    
 }
 
@@ -71,7 +72,6 @@ extension BaseController : UIScrollViewDelegate
     
     func tabBarIsVisible() -> Bool
     {
-//        return (self.tabBarController?.tabBar.frame.origin.y)! < self.view.frame.maxY
         if self.tabBarController == nil
         {
             return false

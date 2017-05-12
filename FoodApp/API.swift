@@ -103,6 +103,54 @@ class API: NSObject {
         }
     }
     
+    static func getOrder(_ completion :@escaping(_ status : Bool , _ products : [[String : Any]])->Void)
+    {
+        
+        Alamofire.request(AppUrl.getOrder, method: .get, parameters: nil, encoding: URLEncoding.default, headers: API.shared.headerAuth).responseJSON { (res) in
+            
+            switch res.result
+            {
+            case .failure(let err):
+                print(err)
+                completion(false , [[String:Any]]())
+            case .success(let value):
+                let dict  = value as! [String : Any]
+               guard let listOrder : [[String : Any]] = dict["result"] as? [[String : Any]] else
+                {
+                    return
+                }
+                completion(true,listOrder)
+                
+            }
+            
+            
+        }
+        
+    }
+    
+    
+    static func createOrder(_ param : [String : Any],_ completion :@escaping(_ status : Bool)->Void )
+    {
+        Alamofire.request(AppUrl.createOrder, method: .post, parameters: param, encoding: JSONEncoding.default, headers:API.shared.headerAuth).responseJSON { (res) in
+            switch res.result
+            {
+            case.failure(let err):
+                print(err)
+                completion(false)
+            case .success(let value):
+                let dict = value as! [String : Any]
+                let success_  = dict["success"] as! NSNumber
+                print(success_)
+                if  success_.intValue == 1
+                {
+                    completion(true)
+                    return
+                }
+                completion(false)
+            }
+        }
+    }
+    
 
 }
 

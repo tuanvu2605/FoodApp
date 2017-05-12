@@ -15,7 +15,10 @@ pod 'SDWebImage', '~>3.8'
 pod 'CarbonKit'
 pod 'DZNEmptyDataSet'
 pod 'GMStepper'
-
+pod 'MBProgressHUD'
+pod 'DatePickerDialog'
+pod 'INSPullToRefresh'
+pod 'AMScrollingNavbar'
 
 
 end

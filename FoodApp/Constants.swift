@@ -45,4 +45,6 @@ struct AppUrl {
     static let loginSocial = AppUrl.baseUrl + "auth/loginsocial"
     static let getAllCategory = AppUrl.baseUrl + "product/getallcategories"
     static let getProductInCategory = AppUrl.baseUrl + "product/getproductincategory"
+    static let createOrder = AppUrl.baseUrl + "order/createorder"
+    static let getOrder = AppUrl.baseUrl + "order/getallorder"
 }

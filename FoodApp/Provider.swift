@@ -10,7 +10,7 @@ import UIKit
 
 class Provider: NSObject {
     
-    var address : String!
+    var address : String?
     var avatarURL : String!
     var des : String?
     var email : String!
@@ -25,7 +25,7 @@ class Provider: NSObject {
     
     init(dict : [String : Any]) {
         
-        address = dict["address"] as! String
+        address = dict["address"] as? String
         avatarURL = dict["avatarURL"] as! String
         des = dict["description"] as? String
         email = dict["email"] as! String

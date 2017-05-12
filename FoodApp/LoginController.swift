@@ -24,7 +24,7 @@ class LoginController: UIViewController {
         HiFb.configLoginButton(btnLoginFb)
         
     
-        bgImageView = UIImageView(frame: view.bounds)
+        bgImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: AppSize.screenWidth, height: AppSize.screenHeight))
         view.addSubview(bgImageView)
         view.sendSubview(toBack: bgImageView)
         bgImageView.image = UIImage(named: "introductionBackground")
@@ -62,7 +62,7 @@ class LoginController: UIViewController {
         
         for i in 0...(listImgName.count - 1) {
             let index : CGFloat = CGFloat(i)
-            let imageView = UIImageView(frame: CGRect(x: index * self.view.frame.width + 80, y: 110, width: self.view.frame.width - 160, height: self.view.frame.height - 220))
+            let imageView = UIImageView(frame: CGRect(x: index * self.view.frame.width + 80, y: 110, width: AppSize.screenWidth - 160, height: AppSize.screenHeight - 220))
             contentView.addSubview(imageView)
             imageView.image = UIImage(named: listImgName[i])
 

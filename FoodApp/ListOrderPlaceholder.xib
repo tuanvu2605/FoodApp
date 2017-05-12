@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12118"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ListOrderPlaceholder" customModule="FoodApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="110"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQy-ne-AB7">
+                    <rect key="frame" x="10" y="10" width="80" height="80"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="1ff-eb-Rou"/>
+                        <constraint firstAttribute="width" secondItem="pQy-ne-AB7" secondAttribute="height" id="XOh-aS-PgF"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPT-UK-ctK">
+                    <rect key="frame" x="107" y="42" width="195" height="15"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="LAO-xC-6cs"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okm-YX-60N">
+                    <rect key="frame" x="107" y="20" width="280" height="15"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="Cxk-oN-Vpr"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eji-nb-TTV">
+                    <rect key="frame" x="107" y="66" width="225" height="15"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="ve8-Tz-lbQ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1i-b7-edG">
+                    <rect key="frame" x="0.0" y="109.5" width="392" height="0.5"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="3dx-G2-ae8"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Okm-YX-60N" firstAttribute="leading" secondItem="pQy-ne-AB7" secondAttribute="trailing" constant="17" id="0vk-ug-vBa"/>
+                <constraint firstAttribute="trailing" secondItem="Eji-nb-TTV" secondAttribute="trailing" constant="60" id="1mu-Xz-7A9"/>
+                <constraint firstItem="Eji-nb-TTV" firstAttribute="leading" secondItem="pQy-ne-AB7" secondAttribute="trailing" constant="17" id="G34-CZ-bMi"/>
+                <constraint firstAttribute="trailing" secondItem="Okm-YX-60N" secondAttribute="trailing" constant="5" id="Pu6-xz-dOa"/>
+                <constraint firstItem="Eji-nb-TTV" firstAttribute="top" secondItem="rPT-UK-ctK" secondAttribute="bottom" constant="9" id="QoO-Js-fUQ"/>
+                <constraint firstItem="pQy-ne-AB7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="RUt-Ay-BHc"/>
+                <constraint firstItem="pQy-ne-AB7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="UCu-TW-YPY"/>
+                <constraint firstAttribute="trailing" secondItem="rPT-UK-ctK" secondAttribute="trailing" constant="90" id="UdF-DQ-bXV"/>
+                <constraint firstAttribute="trailing" secondItem="m1i-b7-edG" secondAttribute="trailing" id="ea0-dZ-fWd"/>
+                <constraint firstItem="m1i-b7-edG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hKb-uU-PdU"/>
+                <constraint firstItem="Okm-YX-60N" firstAttribute="top" secondItem="pQy-ne-AB7" secondAttribute="top" constant="10" id="lmc-eR-OZu"/>
+                <constraint firstAttribute="bottom" secondItem="m1i-b7-edG" secondAttribute="bottom" id="lpR-Rl-qIA"/>
+                <constraint firstItem="rPT-UK-ctK" firstAttribute="top" secondItem="Okm-YX-60N" secondAttribute="bottom" constant="7" id="mpC-Jh-b4p"/>
+                <constraint firstItem="rPT-UK-ctK" firstAttribute="leading" secondItem="pQy-ne-AB7" secondAttribute="trailing" constant="17" id="tYr-lw-m0d"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="circle" destination="pQy-ne-AB7" id="8Y8-3Q-g4B"/>
+            </connections>
+            <point key="canvasLocation" x="23" y="-166"/>
+        </view>
+    </objects>
+</document>

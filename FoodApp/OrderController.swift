@@ -7,26 +7,69 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class OrderController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     let orderCellId = "orderCellId"
+    static let shared = OrderController()
+    var requestParam = [String : Any]()
+    
+    var listProductRequest : [[String : Any ]]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        self.title = "Đặt hàng"
+        self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
         tableView.rowHeight = 90
         tableView.register(UINib(nibName: "OrderCell", bundle: nil), forCellReuseIdentifier: orderCellId)
         tableView.separatorStyle = .none
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "leftArrowGrey"), style: .plain, target: self, action: #selector(btnBackDidTap(_:)))
 
         // Do any additional setup after loading the view.
     }
     
     
     @IBAction func btnDoneDidTap(_ sender: Any) {
+        
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        
+        
+        if requestParam["deliveryAddress"] == nil || requestParam["contactPhoneNumber"] == nil || requestParam["deliveryDate"] == nil  {
+            hud.mode = .text
+            hud.label.text = "Vui lòng điền đủ thông tin"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+               
+                hud.hide(animated: true)
+            }
+            
+            return
+        }
+        hud.mode = .indeterminate
+        requestParam["description"] = "description"
+        requestParam["listProductRequest"] = self.listProductRequest
+        print(requestParam)
+        API.createOrder(requestParam) { (status) in
+            
+            hud.mode = .text
+            if status
+            {
+                hud.label.text = "Tạo đơn hàng thành công"
+            }else
+            {
+               hud.label.text = "Tạo đơn hàng thất bại"
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                
+                hud.hide(animated: true)
+            }
+        }
+        
+      
         
         
     }
@@ -58,12 +101,20 @@ extension OrderController : UITableViewDataSource , UITableViewDelegate
         switch indexPath.section {
         case 0:
             cell.title.text = "Địa chỉ của bạn"
+            cell.type = .address
+            cell.txtField.placeholder = "Hãy nhập địa chỉ..."
         case 1:
             cell.title.text = "Số điện thoại liên hệ"
+            cell.type = .phoneNo
+            cell.txtField.placeholder = "Hãy nhập số điện thoại..."
         case 2 :
             cell.title.text = "Ngày và giờ"
+            cell.type = .time
+            cell.txtField.placeholder = "Chạm để chọn thời gian"
         case 3 :
             cell.title.text = "Ghi chú về đơn hàng"
+            cell.type = .note
+            cell.txtField.placeholder = "Nhập ghi chú thêm..."
             
         default:
             print("out of index")

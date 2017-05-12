@@ -4,3 +4,4 @@
 
 #import "KRLCollectionViewGridLayout.h"
 #import "FBShimmeringView.h"
+#import "TPKeyboardAvoidingTableView.h"

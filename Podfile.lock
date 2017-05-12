@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.4.0)
+  - AMScrollingNavbar (3.3.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -7,6 +8,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
   - CarbonKit (2.1.9)
+  - DatePickerDialog (1.1.7)
   - DZNEmptyDataSet (1.8.1)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
@@ -32,6 +34,8 @@ PODS:
     - FontAwesomeKit/Core
   - GMStepper (2.0.0)
   - HexColors (5.0.1)
+  - INSPullToRefresh (1.1.5)
+  - MBProgressHUD (1.0.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -39,7 +43,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - AMScrollingNavbar
   - CarbonKit
+  - DatePickerDialog
   - DZNEmptyDataSet
   - FacebookCore
   - FacebookLogin
@@ -47,13 +53,17 @@ DEPENDENCIES:
   - FontAwesomeKit/FontAwesome
   - GMStepper
   - HexColors
+  - INSPullToRefresh
+  - MBProgressHUD
   - SDWebImage (~> 3.8)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AMScrollingNavbar: 18b8e0ce74067828458fba73d1a9dea84614ee5c
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   CarbonKit: af16a9c0d2b6c908a5985fe4633424d38c9bfc0a
+  DatePickerDialog: bd5e7e92e4da2c6a8966b28d5f5d8f335d6c2c63
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
@@ -64,9 +74,11 @@ SPEC CHECKSUMS:
   FontAwesomeKit: 3614979b3dbb0ec3f7fac1bd760b91f66c31db67
   GMStepper: 6aff0c881afac2f432e5c9b0df71e44e14110a06
   HexColors: d642e696de77aa919584012e80bf62a4b099cee1
+  INSPullToRefresh: 112ae2c295d2b3a76daa9dff86e7ef40ed002c47
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 85a3ac9df2394371c90138b3b54b9cac3aceebf5
+PODFILE CHECKSUM: 5dce71c85916ea0a0413fd283c1782ebce42857a
 
 COCOAPODS: 1.2.0

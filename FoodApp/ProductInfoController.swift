@@ -14,7 +14,7 @@ enum ProductInfoKey {
     case productName
 }
 
-class ProductInfoController: BaseController {
+class ProductInfoController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var productName: UILabel!
@@ -98,7 +98,7 @@ class ProductInfoController: BaseController {
 
     @IBAction func btnDismissDidTap(_ sender: Any) {
         
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
 }
 extension ProductInfoController : UITableViewDelegate , UITableViewDataSource

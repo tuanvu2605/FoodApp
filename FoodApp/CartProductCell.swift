@@ -15,13 +15,13 @@ class CartProductCell: UITableViewCell {
     @IBOutlet weak var productInfo: UILabel!
     @IBOutlet weak var productIcon: UIImageView!
     
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var count: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         
         productIcon.contentMode = .scaleAspectFill
-        productIcon.layer.cornerRadius = 3
         productIcon.clipsToBounds = true
         // Initialization code
     }
@@ -34,6 +34,12 @@ class CartProductCell: UITableViewCell {
     
     func display_(_ cartProduct : CartProduct) {
         
+        bgView.layer.shadowColor = UIColor.lightGray.cgColor
+        bgView.layer.shadowOffset = CGSize(width: 3, height: 3);
+        bgView.layer.shadowOpacity = 0.5;
+        bgView.layer.shadowRadius = 1.0;
+        
+        backgroundColor = .clear
         productName.text = cartProduct.product.productName
         productInfo.text = cartProduct.product.des
         productIcon.sd_setImage(with: URL(string: cartProduct.product.imageURL)!)

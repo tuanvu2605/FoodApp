@@ -48,4 +48,9 @@ class Utils: NSObject {
         fmt.numberStyle = .decimal
         return  fmt.string(from: number)!
     }
+    
+    static func delay_(_ delay:Double, closure:@escaping ()->()) {
+        let when = DispatchTime.now() + delay
+        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
+    }
 }
