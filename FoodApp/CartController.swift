@@ -74,7 +74,7 @@ class CartController: UIViewController {
         
     }
     
-    private func updateMoneyToPay()
+     func updateMoneyToPay()
     {
         var money = 0
         for cartProduct in listItem
@@ -104,8 +104,13 @@ extension CartController : UITableViewDelegate , UITableViewDataSource ,DZNEmpty
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cartProductCellId, for: indexPath) as! CartProductCell
+        cell.type = .cart
         cell.selectionStyle = .none
         let cartProduct = listItem[indexPath.section]
+        cell.stepperChangeValue = ({(value) in
+            cartProduct.count = value
+            self.updateMoneyToPay()
+        })
         cell.display_(cartProduct)
        
         return cell

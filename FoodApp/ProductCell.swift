@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum BuyState {
+    case buyNow
+    case buyed
+}
+
 class ProductCell: UICollectionViewCell {
     
     @IBOutlet weak var productImage: UIImageView!
@@ -18,6 +23,12 @@ class ProductCell: UICollectionViewCell {
 
     @IBOutlet weak var providerName: UILabel!
     
+    @IBOutlet weak var productPrice: UILabel!
+    
+    @IBOutlet weak var btnBuyNow: UIButton!
+    var didBuyProduct = ({ ()->Void in
+    })
+    var state : BuyState = .buyNow
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +41,9 @@ class ProductCell: UICollectionViewCell {
         layer.cornerRadius = 5.0
         clipsToBounds = true
         providerName.adjustsFontSizeToFitWidth = true
-        
         gradient()
+        
+        btnBuyNow.setTitle(AppString.buyNow, for: .normal)
         
       
         
@@ -56,13 +68,35 @@ class ProductCell: UICollectionViewCell {
     }
     
 
+    @IBAction func btnBuyNowDidTap(_ sender: Any) {
+        
+        if state == .buyed
+        {
+            return
+        }
+        
+        btnBuyNow.setTitle(AppString.buyed, for: .normal)
+        self.didBuyProduct()
+        
+    }
+
     func display_(product : Product)
     {
        
+        if CartController.shared.listItem.contains(where: { $0.product == product}) {
+            state = .buyed
+            btnBuyNow.setTitle(AppString.buyed, for: .normal)
+        }else
+        {
+            state = .buyNow
+            btnBuyNow.setTitle(AppString.buyNow, for: .normal)
+        }
+        
         productImage.sd_setImage(with: URL(string: product.imageURL))
         productName.text = product.productName
         providerAvatar.sd_setImage(with: URL(string: product.provider.avatarURL))
         providerName.text = product.provider.firstName + " " + product.provider.lastName
+        productPrice.text = Utils.formatNumberCurrency(NSNumber(value: product.price)) + AppString.currency
         
     }
 

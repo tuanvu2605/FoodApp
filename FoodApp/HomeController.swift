@@ -64,6 +64,7 @@ class HomeController: BaseCollectionController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.layer.shadowOpacity = 0.8
 
     }
     

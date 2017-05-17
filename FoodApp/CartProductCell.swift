@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import GMStepper
+
+enum CartProductCellType {
+    case cart
+    case order
+}
 
 class CartProductCell: UITableViewCell {
 
@@ -15,17 +21,30 @@ class CartProductCell: UITableViewCell {
     @IBOutlet weak var productInfo: UILabel!
     @IBOutlet weak var productIcon: UIImageView!
     
+    @IBOutlet weak var stepper: GMStepper!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var count: UILabel!
+    var type : CartProductCellType!
+    
+    var stepperChangeValue = ({(value : Int)-> Void in
+    })
     override func awakeFromNib() {
         super.awakeFromNib()
         
         productIcon.contentMode = .scaleAspectFill
         productIcon.clipsToBounds = true
+        stepper.labelFont = UIFont.boldSystemFont(ofSize: 20)
+
         // Initialization code
     }
 
+    @IBAction func stepperChangeValue(_ sender: Any) {
+       
+        count.text = "\(Int(stepper.value))"
+        self.stepperChangeValue(Int(stepper.value))
+       
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -33,6 +52,11 @@ class CartProductCell: UITableViewCell {
     }
     
     func display_(_ cartProduct : CartProduct) {
+        
+        if type == .order
+        {
+            stepper.isHidden = true
+        }
         
         bgView.layer.shadowColor = UIColor.lightGray.cgColor
         bgView.layer.shadowOffset = CGSize(width: 3, height: 3);
@@ -47,6 +71,7 @@ class CartProductCell: UITableViewCell {
         fmt.numberStyle = .decimal
         price.text =  fmt.string(from: NSNumber(value: cartProduct.product.price))! + AppString.currency
         count.text = "\(cartProduct.count)"
+        stepper.value = Double(cartProduct.count)
         
     }
     

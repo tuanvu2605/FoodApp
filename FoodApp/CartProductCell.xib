@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -58,11 +57,42 @@
                                 <color key="textColor" red="0.59209877249999998" green="0.59219890829999999" blue="0.59207743410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ym1-9f-AYw" customClass="GMStepper" customModule="GMStepper">
+                                <rect key="frame" x="518" y="48" width="100" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="lqB-YZ-EPU"/>
+                                    <constraint firstAttribute="width" constant="100" id="xKk-ap-HX7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autorepeat" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="stepValue">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonsBackgroundColor">
+                                        <color key="value" red="0.55315804481506348" green="0.7648969292640686" blue="0.23063930869102478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelBackgroundColor">
+                                        <color key="value" red="0.51717275381088257" green="0.71862488985061646" blue="0.2127133309841156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="stepperChangeValue:" destination="KGk-i7-Jjw" eventType="valueChanged" id="U1M-ou-dHT"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ey1-qN-DxD" firstAttribute="leading" secondItem="zaf-ZR-Rve" secondAttribute="trailing" constant="10" id="0EJ-Bz-GOK"/>
+                            <constraint firstAttribute="trailing" secondItem="ym1-9f-AYw" secondAttribute="trailing" constant="5" id="15M-Gd-hL3"/>
                             <constraint firstItem="jq9-GV-9Po" firstAttribute="top" secondItem="4Cl-tx-r5r" secondAttribute="bottom" constant="5" id="18r-WH-AXv"/>
+                            <constraint firstItem="ym1-9f-AYw" firstAttribute="centerY" secondItem="jq9-GV-9Po" secondAttribute="centerY" id="46d-G0-D3D"/>
                             <constraint firstAttribute="trailing" secondItem="4Cl-tx-r5r" secondAttribute="trailing" constant="10" id="5dN-wW-zVv"/>
                             <constraint firstItem="ey1-qN-DxD" firstAttribute="top" secondItem="Lok-mu-VZX" secondAttribute="top" constant="10" id="Ana-Vn-PpA"/>
                             <constraint firstItem="9hy-V4-VvA" firstAttribute="leading" secondItem="jq9-GV-9Po" secondAttribute="trailing" constant="2" id="IZV-Pn-uHx"/>
@@ -93,8 +123,9 @@
                 <outlet property="productIcon" destination="zaf-ZR-Rve" id="X4W-IP-wWK"/>
                 <outlet property="productInfo" destination="4Cl-tx-r5r" id="uwf-yu-jzw"/>
                 <outlet property="productName" destination="ey1-qN-DxD" id="E8Q-VC-u2c"/>
+                <outlet property="stepper" destination="ym1-9f-AYw" id="LX0-Q3-xIg"/>
             </connections>
-            <point key="canvasLocation" x="-399.5" y="49.5"/>
+            <point key="canvasLocation" x="-204" y="81"/>
         </tableViewCell>
     </objects>
 </document>

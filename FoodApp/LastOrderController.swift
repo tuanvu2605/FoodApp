@@ -21,7 +21,6 @@ class LastOrderController: UIViewController {
         tableView.separatorStyle = .none
         
         let back = UIBarButtonItem(image: #imageLiteral(resourceName: "leftArrowGrey"), style: .done, target: self, action: #selector(backButtonDidTap(_:)))
-        back.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = back
 
         // Do any additional setup after loading the view.
@@ -58,6 +57,7 @@ extension LastOrderController : UITableViewDelegate , UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: cartProductCellId, for: indexPath) as! CartProductCell
         
         let cartProduct = listItem[indexPath.section]
+        cell.type = .order
         cell.display_(cartProduct)
         cell.selectionStyle = .none
         return cell

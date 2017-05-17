@@ -25,11 +25,15 @@ class AppTabBarController: UITabBarController {
         
         let history = StoreOrderController.shared
         let navHistory = NavController(rootViewController: history)
-        navHistory.tabBarItem = UITabBarItem(title: nil, image:#imageLiteral(resourceName: "clock"), selectedImage: nil)
+        navHistory.tabBarItem = UITabBarItem(title: nil, image:#imageLiteral(resourceName: "category"), selectedImage: nil)
         navHistory.setNavigationBarHidden(true, animated: false)
         centerIcon(tabBarItem: navHistory.tabBarItem)
-    
-        self.viewControllers = [navHome ,navHistory]
+        
+        let setting = SettingController.shared
+        let navSetting = NavController(rootViewController: setting)
+        navSetting.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "gear"), selectedImage: nil)
+        centerIcon(tabBarItem: navSetting.tabBarItem)
+        self.viewControllers = [navHome ,navHistory,navSetting]
         
 //        var tabbarFrame = tabBar.frame
 //        tabbarFrame.size.height = 40

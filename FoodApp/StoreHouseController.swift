@@ -38,6 +38,7 @@ class StoreHouseController: UIViewController {
         super.viewDidLoad()
         
         
+        
         let cartView = CartBarItem.shared
         let cartItem = UIBarButtonItem(customView:cartView)
         cartItem.tintColor = .black
@@ -76,6 +77,8 @@ class StoreHouseController: UIViewController {
         carbonSwipeNavigation.setCurrentTabIndex(UInt(tabIndex), withAnimation: false)
         
         
+        
+        
 
         
     }
@@ -91,6 +94,7 @@ class StoreHouseController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.layer.shadowOpacity = 0.0
         if let navigationController = navigationController as? ScrollingNavigationController {
             navigationController.showNavbar(animated: true)
         }

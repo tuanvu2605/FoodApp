@@ -48,12 +48,21 @@ class ProductsController: BaseCollectionController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if collection != nil
+        {
+            collection.reloadData()
+        }
+    }
+    
     func layoutCollectionView()
     {
         let collectionLayout = KRLCollectionViewGridLayout()
         collectionLayout.numberOfItemsPerLine = 2
         let cellWidth = (AppSize.screenWidth - 30)/2
-        let cellHeight = (AppSize.screenWidth - 30)/2 + 90
+        let cellHeight = (AppSize.screenWidth - 30)/2 + 150
         collectionLayout.aspectRatio = cellWidth / cellHeight
         collectionLayout.interitemSpacing = 10
         collectionLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 50, right: 10)
@@ -85,6 +94,14 @@ extension ProductsController
     override func displayCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ProductCell
         let product = products[indexPath.item]
+        cell.didBuyProduct = ({()-> Void in
+            
+            let cartProduct = CartProduct()
+            cartProduct.product = product
+            cartProduct.count = 1
+            CartController.shared.listItem.append(cartProduct)
+            
+        })
         cell.display_(product: product)
         
         return cell

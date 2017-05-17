@@ -26,6 +26,8 @@ struct AppString {
     
     static let accessTokenPrefix  = "Bearer "
     static let currency = " VNĐ"
+    static let buyNow = "+ Mua ngay"
+    static let buyed = "Đã thêm vào giỏ hàng"
 }
 
 struct AppKey {

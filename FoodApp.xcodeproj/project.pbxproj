@@ -36,6 +36,8 @@
 		6E4C62921EBFA8B600511E1A /* LastOrderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4C62901EBFA8B600511E1A /* LastOrderController.xib */; };
 		6E58B34F1EC18349002A2FCB /* CartBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58B34E1EC18349002A2FCB /* CartBarItem.swift */; };
 		6E58B3511EC1835A002A2FCB /* CartBarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E58B3501EC1835A002A2FCB /* CartBarItem.xib */; };
+		6E58DDDA1ECC685600CB6662 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58DDD81ECC685600CB6662 /* SettingController.swift */; };
+		6E58DDDB1ECC685600CB6662 /* SettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DDD91ECC685600CB6662 /* SettingController.xib */; };
 		6E60DDC41EB203D100AB0014 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E60DDC31EB203D100AB0014 /* Utils.swift */; };
 		6E60DDC61EB27F0D00AB0014 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E60DDC51EB27F0D00AB0014 /* Category.swift */; };
 		6E60DDC91EB28A2600AB0014 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E60DDC71EB28A2600AB0014 /* CategoryCell.swift */; };
@@ -114,6 +116,8 @@
 		6E4C62901EBFA8B600511E1A /* LastOrderController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LastOrderController.xib; sourceTree = "<group>"; };
 		6E58B34E1EC18349002A2FCB /* CartBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartBarItem.swift; sourceTree = "<group>"; };
 		6E58B3501EC1835A002A2FCB /* CartBarItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartBarItem.xib; sourceTree = "<group>"; };
+		6E58DDD81ECC685600CB6662 /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		6E58DDD91ECC685600CB6662 /* SettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingController.xib; sourceTree = "<group>"; };
 		6E60DDC31EB203D100AB0014 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		6E60DDC51EB27F0D00AB0014 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		6E60DDC71EB28A2600AB0014 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -199,7 +203,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		6E0C392A1EC31B4700FD420E /* Ho */ = {
+		6E0C392A1EC31B4700FD420E /* StoreHouse */ = {
 			isa = PBXGroup;
 			children = (
 				6E1137FB1EB324910038E694 /* StoreHouseController.swift */,
@@ -207,7 +211,7 @@
 				6E0C392B1EC31B5300FD420E /* List-Product */,
 				6E0C392D1EC31BBF00FD420E /* cell */,
 			);
-			name = Ho;
+			name = StoreHouse;
 			sourceTree = "<group>";
 		};
 		6E0C392B1EC31B5300FD420E /* List-Product */ = {
@@ -357,6 +361,15 @@
 			name = shimmer;
 			sourceTree = "<group>";
 		};
+		6E58DDD71ECC684300CB6662 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				6E58DDD81ECC685600CB6662 /* SettingController.swift */,
+				6E58DDD91ECC685600CB6662 /* SettingController.xib */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		6E69278E1EAE38C900042D64 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +402,7 @@
 		6EBE6BF41EAD0F4400ABB22C /* FoodApp */ = {
 			isa = PBXGroup;
 			children = (
+				6E58DDD71ECC684300CB6662 /* Setting */,
 				6E0C392E1EC31BFD00FD420E /* Cart */,
 				6E0C39291EC31AE400FD420E /* Model */,
 				6E69278E1EAE38C900042D64 /* libs */,
@@ -396,7 +410,7 @@
 				6E0C39261EC31A8E00FD420E /* Home */,
 				6E0C39341EC31C9F00FD420E /* Login */,
 				6E0C39351EC31CB100FD420E /* Helper */,
-				6E0C392A1EC31B4700FD420E /* Ho */,
+				6E0C392A1EC31B4700FD420E /* StoreHouse */,
 				6E0C39311EC31C6D00FD420E /* History */,
 				6E0C39301EC31C5E00FD420E /* Order */,
 				6EBE6BF91EAD0F4400ABB22C /* Main.storyboard */,
@@ -504,6 +518,7 @@
 				6E46D0B11EBCDC2F00CD7D08 /* ProductInfoCell.xib in Resources */,
 				6E0043D21EBCED8900706DFE /* OrderController.xib in Resources */,
 				6EBE6BFD1EAD0F4400ABB22C /* Assets.xcassets in Resources */,
+				6E58DDDB1ECC685600CB6662 /* SettingController.xib in Resources */,
 				6EA0B1F21EBB310B004DB7F5 /* CartProductCell.xib in Resources */,
 				6EBAAD2E1EC37B2E00BDA36B /* StoreOrderController.xib in Resources */,
 				6E1137FA1EB323C00038E694 /* ProductsController.xib in Resources */,
@@ -580,6 +595,7 @@
 				6E3B32561EB4F00D00C60C9D /* PlaceholderCell.swift in Sources */,
 				6EAF649E1EC1D7EC00B7C4C7 /* ListOrderCell.swift in Sources */,
 				6E0043D51EBCEE2000706DFE /* OrderCell.swift in Sources */,
+				6E58DDDA1ECC685600CB6662 /* SettingController.swift in Sources */,
 				6E4C628C1EBF8E9400511E1A /* NavController.swift in Sources */,
 				6ED8B9201EADD23600999F4E /* LoginController.swift in Sources */,
 				6EBAAD311EC380EE00BDA36B /* ListOrderPlaceholderCell.swift in Sources */,

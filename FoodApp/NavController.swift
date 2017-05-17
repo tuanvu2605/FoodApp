@@ -16,8 +16,12 @@ class NavController: ScrollingNavigationController {
         
         navigationBar.isTranslucent = false
         navigationBar.shadowImage = #imageLiteral(resourceName: "TransparentPixel")
-//        navigationBar.setBackgroundImage(#imageLiteral(resourceName: "Pixel"), for: .default)
-        navigationBar.barTintColor = UIColor("8dc33b")
+        navigationBar.setBackgroundImage(#imageLiteral(resourceName: "Pixel"), for: .default)
+        navigationBar.layer.shadowColor = UIColor.black.cgColor
+        navigationBar.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        navigationBar.layer.shadowRadius = 3.0
+        navigationBar.layer.shadowOpacity = 0.8
+//        navigationBar.barTintColor = UIColor("8dc33b")
 
 
         // Do any additional setup after loading the view.
